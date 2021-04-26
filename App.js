@@ -1,21 +1,71 @@
-import { StatusBar } from 'expo-status-bar';
+// import { StatusBar } from 'expo-status-bar';
+// import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { AntDesign } from '@expo/vector-icons';
+
+import HomeScreen from './Screen/Home'
+import GetStarted from './Screen/GetStarted'
+import Search from './Screen/Search'
+import Profil from './Screen/Profil'
+import Cart from './Screen/Cart'
+
+const Tab = createBottomTabNavigator();
+
+const Stack = createStackNavigator();
+
+
+const RootStack = () => {
+
+  return(
+   
+      <Stack.Navigator initialRouteName="GetStarted">
+        <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'Home ' }} />
+        <Stack.Screen name="GetStarted" component={GetStarted} options={{ title: 'Welcome' }} />
+        <Stack.Screen name="Cart" component={Cart} />
+      </Stack.Navigator>
+ 
+  )
+
+}
+
 
 export default function App() {
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+  
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Home" 
+        component={RootStack}
+        options={{
+          tabBarIcon: () => (
+            <AntDesign name="home" size={24} color="black" />
+          ),
+        }} />
+        <Tab.Screen name="Search" 
+        component={Search} 
+        options={{
+          tabBarIcon: () => (
+            <AntDesign name="search1" size={24} color="black" />
+          ),
+        }}/>
+        <Tab.Screen name="Profil" 
+        component={Profil}
+        options={{
+          tabBarIcon: () => (
+            <AntDesign name="user" size={24} color="black" />
+          ),
+        }} />
+      </Tab.Navigator>
+    </NavigationContainer>
+
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
+
+
