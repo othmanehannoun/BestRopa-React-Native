@@ -39,10 +39,7 @@ const Home = ({navigation}) => {
         
                 <TouchableOpacity
                 style={{marginBottom: 30}}
-                onPress={() => navigation.navigate('Cart', {
-                    item
-                  })
-                 }
+               
                 >
                    <View > 
                    <Image
@@ -53,12 +50,13 @@ const Home = ({navigation}) => {
                             
                            
                         }}
-                        source={require('../assets/img1.jpg')}
+                        source={item.image}
 
                     /> 
-                    <View style={{flexDirection: 'row', padding:10}}>
-                      <Text style={{fontSize:18,marginEnd: 190,}}>{item.name}</Text>
-                      <Text style={{fontSize:22, fontWeight:"bold", color:"#fd7e14" }}>{item.price}Dh</Text>
+                    
+                    <View style={{flexDirection: 'row', padding:10, display:"flex" }}>
+                      <Text style={{fontSize:18,  }}>{item.name}</Text>
+                      <Text style={{fontSize:22, fontWeight:"bold", color:"#fd7e14", marginLeft: 'auto'}}>{item.price}Dh</Text>
                     </View>   
 
                     <View>

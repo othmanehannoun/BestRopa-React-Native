@@ -12,35 +12,21 @@ import GetStarted from './Screen/GetStarted'
 import Search from './Screen/Search'
 import Profil from './Screen/Profil'
 import Cart from './Screen/Cart'
+import Home from './Screen/Home';
 
 const Tab = createBottomTabNavigator();
 
 const Stack = createStackNavigator();
 
 
-const RootStack = () => {
+const RootTab = () => {
 
   return(
    
-      <Stack.Navigator initialRouteName="GetStarted">
-        <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'Home ' }} />
-        <Stack.Screen name="GetStarted" component={GetStarted} options={{ title: 'Welcome' }} />
-        <Stack.Screen name="Cart" component={Cart} />
-      </Stack.Navigator>
- 
-  )
-
-}
-
-
-export default function App() {
-
-  return (
-  
-    <NavigationContainer>
-      <Tab.Navigator>
+    
+<Tab.Navigator>
         <Tab.Screen name="Home" 
-        component={RootStack}
+        component={Home}
         options={{
           tabBarIcon: () => (
             <AntDesign name="home" size={24} color="black" />
@@ -61,6 +47,25 @@ export default function App() {
           ),
         }} />
       </Tab.Navigator>
+ 
+  )
+
+}
+
+
+export default function App() {
+
+  return (
+  
+    <NavigationContainer>
+     
+        
+      <Stack.Navigator initialRouteName="GetStarted">
+        <Stack.Screen name="Home" component={RootTab} options={{ title: 'Home ' }} />
+        <Stack.Screen name="GetStarted" component={GetStarted} options={{ title: 'Welcome' }} />
+        <Stack.Screen name="Cart" component={Cart} />
+      </Stack.Navigator>
+
     </NavigationContainer>
 
   );

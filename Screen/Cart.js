@@ -39,7 +39,7 @@ const Cart = () => {
                dataCart.map((item)=>{
                  return(
                     <View style={style.cartCard} key={item.id}>
-                    <Image source={require('../assets/img1.jpg')} style={{height: 80, width: 80 , borderRadius:50}} />
+                    <Image source={item.food.image} style={{height: 80, width: 80 , borderRadius:50}} />
                     <View
                       style={{
                         height: 100,
@@ -58,7 +58,7 @@ const Cart = () => {
                         <TouchableOpacity>
                             <Icon name="ios-remove-circle" size={30} color={"#9fd236"} />
                         </TouchableOpacity>
-                        <Text style={{paddingHorizontal:8, fontWeight:'bold'}}>5</Text>
+                        <Text style={{paddingHorizontal:8, fontWeight:'bold'}}>1</Text>
                         <TouchableOpacity>
                             <Icon name="ios-add-circle" size={30} color={"#9fd236"} />
                         </TouchableOpacity>
